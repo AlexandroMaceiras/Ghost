@@ -1,0 +1,475 @@
+﻿@model Ghost.Models.SLV_VW_GERE_DADOS_CADASTRAIS
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+    @*Layout = "~/Views/Shared/_LayoutEditBootstrap.cshtml";*@
+}
+
+<h4>Detalhes do Cliente:</h4>
+<div class="jumbotronBusca container">
+    <table border="0">
+        <tr>
+            <th class="busca">
+                CPF ou CNPJ:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                <b>@Html.DisplayFor(model => model.CD_CPF_CNPJ)</b>&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Pessoa:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.SG_TP_PESSOA)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nome do Cliente:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_PESSOA)
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Grupo Econômico:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_GRUPO_ECONOMICO)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+        <tr>
+            <th class="busca">
+                Nome do Logradouro:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_LOGRADOURO)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Número do Logradouro:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_LOGRADOURO)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Complemento:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_COMPLEMENTO)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Bairro:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_BAIRRO)&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Cidade:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_CIDADE)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Estado:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.SG_UF)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                CEP:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.CD_CEP)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                País:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_PAIS)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                DDD:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_DDD)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Telefone:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_TELEFONE)&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                DDD Cel.:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_DDD_CELULAR)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Celular:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_CELULAR)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+        <tr class="dl-horizontal">
+            <th class="busca">
+                E-mail:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                <b>@Html.DisplayFor(model => model.NM_EMAIL)</b>&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Data de Nascimento ou Fundação:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DT_NASCIMENTO_OU_FUNDACAO)&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nome do Contato:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_CONTATO)
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                RG:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NR_RG)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+        <tr>
+            <th class="busca">
+                Emissor do RG:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_EMISSOR_RG)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Naturalidade:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DS_NATURALIDADE)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nacionalidade:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DS_NACIONALIDADE)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Nome do Pai:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_PAI)&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nome da Mãe:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_MAE)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Nome do Conjugue:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.NM_CONJUGE)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Código do Estado Civil:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.CD_ESTADO_CIVIL)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Estado Civil:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DS_ESTADO_CIVIL)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Data do Cadastro:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DT_CADASTRO)&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Data da Atualização:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.DT_ATUALIZACAO)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+    </table>
+</div>
+
+<h4>Detalhes dos Sócios:</h4>
+
+<h5>Sócio 1</h5>
+<div class="jumbotronBusca container">
+    <table border="0">
+        <tr>
+            <th class="busca">
+                CPF ou CNPJ do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                <b>@Html.DisplayFor(model => model.CD_CPF_CNPJ)</b>&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Sócio Pessoa:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.SG_TP_PESSOA)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nome do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                JOSÉ ANTONIO BRUGGS
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                DDD:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                11&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+        <tr>
+            <th class="busca">
+                Telefone:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                2545-8988&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                DDD Cel.:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                11&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Celular:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                99398-8665&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Email do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                Josecdriff@uol.com.br&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Contato:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                CLAUDIO ROSA JUNIOR&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Grupo Econômico Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                MANAUS EMPREEN ECON&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+    </table>
+</div>
+
+<h5>Sócio 2</h5>
+<div class="jumbotronBusca container">
+    <table border="0">
+        <tr>
+            <th class="busca">
+                CPF ou CNPJ do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                <b>@Html.DisplayFor(model => model.CD_CPF_CNPJ)</b>&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Sócio Pessoa:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                @Html.DisplayFor(model => model.SG_TP_PESSOA)&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Nome do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                ANTONIO CARLOS CONSTINNI
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                DDD:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                11&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+        <tr>
+            <th class="busca">
+                Telefone:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                7755-4455&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                DDD Cel.:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                11&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Celular:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                98878-5584&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Email do Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                Josecdriff@uol.com.br&nbsp;&nbsp;&nbsp;
+            </th>
+
+        </tr>
+
+        <tr>
+            <th class="busca">
+                Contato:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                CLAUDIO ROSA JUNIOR&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="busca">
+                Grupo Econômico Sócio:&nbsp;&nbsp;&nbsp;
+            </th>
+            <th class="detalhes">
+                MANAUS EMPREEN ECON&nbsp;&nbsp;&nbsp;
+            </th>
+        </tr>
+    </table>
+</div>

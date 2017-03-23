@@ -1,0 +1,341 @@
+﻿@using GridMvc.Html
+@using GridMvc.Sorting
+@model IEnumerable<Ghost.Models.DetalhesGerenciamentoViewModel>
+
+<!DOCTYPE html>
+
+<html>
+
+@{
+    ViewBag.Title = "Gerenciamento de Clientes";
+}
+
+<center><h2>Gerenciamento de Clientes</h2></center>
+
+@using (Html.BeginForm("Index", "GerenciamentoView"))
+{
+    <div class="jumbotronBusca container">
+        <table border="0">
+            <tr>
+                <th class="busca">
+                    <b>Cliente:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cliente" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Cpf/Cnpj:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cpfcnpj" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do contrato:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroContrato" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th class="busca" colspan="3">
+                    <b>Pessoa Jurídica?</b>
+                    <input type="checkbox" name="pessoaJuridica1" />&nbsp;<b>Pessoa Física?</b>
+                    <input type="checkbox" name="pessoaJuridica2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <b>Incluir Grupo?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="incluirGrupo" />&nbsp;<a class="modal2-link" style="border:double" data-toggle="modal" data-target="#example-modal" id="example-modal--label" href="#"><b>?</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do processo:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Grupo Econômico:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="grupoEconomico" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Carteira:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="carteira" size="14" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Código Op Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="codOpSolvere" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Gestor Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="gestorSolvere" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Escritório:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="escritorio" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                <td colspan="10" align="right">
+                    <input class="btn btn-default" type="submit" name="busca" value="Pesquisar" />&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                </th>
+            </tr>
+        </table>
+    </div>
+}
+
+
+<div class="modal fade" role="dialog" aria-labelledby="example-modal--label" aria-hidden="true" id="example-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <header class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fecha Janela</span></button>
+                <h4 class="modal-title" id="mySmallModalLabel"><b>Incluir Grupo</b></h4><i>Selecione este checkbox para pesquisar todos os clientes de um determinado grupo.</i>
+            </header>
+            <div class="modal-body">
+                <p>&nbsp;Para você ter o resultado correspondente, deverá somente colocar dados em um dos ítens de todo o formulário como por exemplo o Cpf/Cnpj ou o Cliente e depois clicar aqui no checkbox [Incluir Grupo] e [Pesquisar], &nbsp;caso contrário o &nbsp;excesso de informações irão atrapalhar para que a pesquisa de grupos traga todos componen- tes daquele grupo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+    <!-- Este css dá conflito e faz as janelinhas de filtro do grid ficarem desalinhadas com o símbolo de filtro-->
+    <!--    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" /> -->
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"> </script>
+    <script src="@Url.Content("~/Scripts/gridmvc.lang.ptbr.js")"></script>
+</head>
+
+
+<body>
+    <center>
+        <hr class="container" />
+        <div id="supergrid" style="width: 100%;">
+
+                @if (Model.Count() > 0)
+                {
+                    @Html.Grid(Model).SetLanguage("ptbr").Columns(columns =>
+       {
+           columns.Add(c => c.IC_STATUS_PROCESSUAL).Titled("<font size=2>Status <br>Processual</font>");
+           columns.Add(c => c.IC_STATUS_OPERACIONAL).Titled("<font size=2>Status <br>Operacional</font>");
+           columns.Add(c => c.NR_PROCESSO).Titled("<font size=2><br>Processo</font>");
+           columns.Add(c => c.CD_SOLVERE_OPER).Titled("<font size=2>Cód. Op. <br>Solvere</font>");
+           columns.Add(c => c.NR_CONTRATO).Titled("<font size=2><br>Contrato</font>");
+           columns.Add(c => c.NM_PRODUTO).Titled("<font size=2><br>Produto</font>");
+           columns.Add(c => c.DT_CONTRATO).Titled("<font size=2>Data <br>Contrato</font>").Format("{0:dd/MM/yyyy}");
+           columns.Add(c => c.DT_VENC_DESDE).Titled("<font size=2>Data Vencimento<br>Desde</font>").Format("{0:dd/MM/yyyy}"); ;
+           columns.Add(c => c.VL_SALDO_CONTABIL_DEVEDOR).Titled("<font size=2>Saldo Devedor<br>Contábil</font>");
+           columns.Add(c => c.VL_SALDO_GERENCIAL).Titled("<font size=2>Saldo <br>Gerencial</font>");
+           columns.Add(c => c.NM_PESSOA).Titled("<font size=2>Nome do<br>Cliente</font>");
+           columns.Add(c => c.CD_CARTEIRA).Titled("<font size=2><br>Carteira</font>");
+           columns.Add().Titled("<font size=2><br>Somar?</font>")
+               .Encoded(false)
+               .Sanitized(false)
+               .RenderValueAs(o => Html.CheckBox("checkSoma", false));
+           columns.Add()
+               .Encoded(false)
+               .Sanitized(false)
+               .RenderValueAs(d => Html.ActionLink("Detalhes", "Aviewsql", new { id = d.NR_CARGA }, new { @class = "modal-link" }));
+
+
+           //columns.Add(c => c.CD_CPF_CNPJ).Titled("CPF CNPJ");
+           //columns.Add(c => c.NM_GRUPO_ECONOMICO).Titled("GRUPO ECONOMICO");
+
+
+       }).WithPaging(10).Sortable(true).Filterable(true).WithMultipleFilters()
+                }
+                else
+                {
+                    <div>Nenhum item encontrado</div>
+                    <div>Preencha os campos acima com o que está procurando e clique em [Pesquisar], caso queira trazer todos os registros clique em [Pesquisar] com os campos em branco.</div>
+                }
+
+            <center>
+                <div id="resultados" hidden>
+                    <table border="0">
+                        <tr>
+                            <td>
+                                <div id="soma1Total">
+                                </div>
+                            </td>
+
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+
+                            <td>
+                                <div id="soma2Total">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+
+        </div>
+    </center>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModal2Label">
+                        Detalhes do Cliente
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    Carregando...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        Fechar
+                    </button>
+                    @*<button type="submit" value="search" class="btn btn-primary">
+                            Continuar
+                        </button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //this script reset modal each time when you click on the link:
+        try {
+            $(function () {
+                $(".modal-link").click(function (event) {
+                    event.preventDefault();
+                    $('#myModal').removeData("modal");
+                    $('#myModal').modal({ remote: $(this).attr("href") });
+
+                });
+            });
+        }
+        catch (e) {
+            alert(e);
+        }
+
+        //define o css de todos os botões de Detalhes do grid.
+        try {
+            $(function () {
+                $("tr.grid-row").each(function () {
+                    var tr = $(this);
+                    var rows = $(tr).children();
+                    $(rows[13]).css({ "background-color": "#ffffff", "border-color": "#000000" });
+                    $(rows[13].setAttribute("class", "btn btn-default"));
+                    $(rows[13].setAttribute("position", "relative"));
+                })
+            });
+        }
+        catch (e) {
+            //alert(e);
+        }
+
+        caminho = document.getElementById("supergrid");
+
+        //Faz a soma da coluna 11 e a soma da coluna 4, checando o campo 12, automaticamente e atualiza no final.
+        try {
+            $("tr.grid-row").change(function () {
+                
+                $("#resultados").slideDown();
+                var soma1 = 0.00;
+                var soma2 = 0.00;
+                $("tr.grid-row").each(function () {
+                    var tr = $(this);
+                    var rows = $(tr).children();
+
+                    if (rows[12].getElementsByTagName("input")[0].checked) {
+
+                        var valor1 = rows[8].innerHTML;
+                        var valor2 = rows[9].innerHTML;
+                        valor1 = valor1.replace(",", ".");
+                        valor2 = valor2.replace(",", ".");
+                        valor1 = parseFloat(valor1);
+                        valor2 = parseFloat(valor2);
+                        //confirm(valor1);
+                        soma1 += valor1;
+                        soma2 += valor2;
+                    }
+                });
+
+                soma1 = soma1.toFixed(2);
+                soma2 = soma2.toFixed(2);
+
+                //Aparece cada uma das somas no final do grid.
+                //var trTotal = "<tr><td></td><td></td><td></td><td style='color:red;font-weight:bold;'>" + soma + "</td><td></td><td></td></tr>"
+                //$("tr.grid-row:last").after(trTotal);
+
+                $("#soma1Total").html("<b>Total</b> <font color='Blue'>Saldo Contábil Devedor:</font> <font style='color:black; font-family:Arial; font-style:normal;'>R$ <b>" + soma1.replace(".", ",") + "</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-");
+                $("#soma2Total").html("<b>Total</b> <font color='Blue'>Saldo Gerencial:</font> <font style='color:black; font-family:Arial; font-style:normal;'>R$ <b>" + soma2.replace(".", ",") + "</b></font>");
+
+                if (soma1 == 0 && soma2 == 0)
+                    $("#resultados").fadeOut();
+            });
+        }
+        catch (e) {
+            //alert(e);
+        }
+
+        //Retira o filtro da coluna "SOMAR?".
+        try {
+            caminho.getElementsByTagName("thead")[0]
+            .getElementsByTagName("div")[24]
+            .getElementsByTagName("span")[0]
+            .setAttribute("class", " ");
+        }
+        catch (e) {
+            //alert(e);
+        }
+
+        //Se os filtros não encontrarem nada imprime a mensagem em português (Não é pela pesquisa do topo da página é pela pesquisa feita nos filtros das colunas!).
+        //try
+        //{
+        //    local = caminho.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+        //    if (local.getAttribute("class") == "grid-empty-text") {
+        //        local.innerHTML = "<td colspan='14'>Nenhum item encontrado</td>";
+        //    }
+        //}
+        //catch(e)
+        //{
+        //    //alert(e);
+        //}
+
+        //Traduz o tooltip do filtro da coluna de "Filter this column" para português e coloca o nome da coluna.
+        try {
+            for (i = 1; i <= caminho.getElementsByTagName("span").length - 3; i++) {
+                caminho.getElementsByTagName("div")[i * 2]
+                    .getElementsByTagName("span")[0]
+                    .setAttribute("title", "Filtrar a coluna " + caminho.getElementsByTagName("div")[i * 2 + 1].textContent + " !");
+            }
+        }
+        catch (e) {
+            //alert(e);
+        }
+    </script>
+
+</body>
+
+</html>

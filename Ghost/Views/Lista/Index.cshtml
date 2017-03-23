@@ -1,0 +1,216 @@
+﻿@model IEnumerable<Ghost.Models.Lista>
+
+@{
+    ViewBag.Title = "Acordos com Clientes";
+}
+
+<center><h2>Acordos com Clientes</h2></center>
+
+@using (Html.BeginForm("Index", "Lista"))
+{
+    <div class="jumbotronBusca container">
+        <table border="0">
+            <tr>
+                <th class="busca">
+                    <b>Cliente:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cliente" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Cpf/Cnpj:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cpfcnpj" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do contrato:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroContrato" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Pessoa Jurídica?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="pessoaJuridica" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Incluir Grupo?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="incluirGrupo" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do processo:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Grupo Econômico:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="grupoEconomico" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Pt.Pró.Princip.:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="carteira" size="14" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Código Op Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="codOpSolvere" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Gestor Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Faixa Acordos:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="escritorio1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca" colspan="10" align="right">
+                    <b>Incluir Grupo?&nbsp;&nbsp;</b><input type="checkbox" name="incluirGrupo" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="busca" value="Pesquisar" />
+
+                </th>
+            </tr>
+        </table>
+    </div>
+}
+
+<table class="table table-striped grid-table table container jumbotronGrid">
+    <tr>
+        <th>
+            <font size="1">Código da Causa</font>
+        </th>
+        <th>
+            <font size="1">Processo</font>
+        </th>
+        <th>
+            <font size="1">Contrato</font>
+        </th>
+        <th>
+            <font size="1">Número Solvere</font>
+        </th>
+        <th>
+            <font size="1">CPF/CNPJ</font>
+        </th>
+        <th>
+            <font size="1">Cliente</font>
+        </th>
+        <th>
+            <font size="1">Tipo de Pessoa</font>
+        </th>
+        <th>
+            <font size="1">Tipo de Contrato</font>
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Rg)
+        </th>*@
+        <th>
+            <font size="1">Tipo de Acordo</font>
+        </th>
+        <th>
+            <font size="1">Instrumento</font>
+        </th>
+        <th>
+            <font size="1">Númeo do Acordo</font>
+        </th>
+        <th>
+            <font size="1">Data do Acordo</font>
+        </th>
+        <th>
+            <font size="1">Valor do Acordo</font>
+        </th>
+        <th>
+            <font size="1">Qtde Parcelas</font>
+        </th>
+        <th>
+            <font size="1">Qtde Pagas</font>
+        </th>
+        <th>
+            <font size="1">Status Acordo</font>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Rg)
+        </td>*@
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ListaId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ListaId }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ListaId })
+        </td>
+    </tr>
+}
+
+</table>
+<hr class="container">
+<p class="container">
+    @Html.ActionLink("Adicionar novo acordo", "Create")
+</p>

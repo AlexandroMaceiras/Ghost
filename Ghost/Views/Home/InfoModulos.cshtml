@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Módulos existentes";
+}
+
+<h2 class="container">@ViewBag.Title.</h2>
+<h3 class="container">@ViewBag.Message</h3>
+
+<p class="container">
+    <ul class="container">
+        <li>@Html.ActionLink("Gerenciamento", "Index", "GerenciamentoView") - Gerencie os clientes da base de dados.</li>
+        <li>@Html.ActionLink("Gerenciamento", "Index", "Gerenciamento") - Gerenciamento antigo.</li>
+        <li>@Html.ActionLink("Acordos", "Index", "Lista") - Controle os acordos feitos com o cliente.</li>
+        <li>@Html.ActionLink("Garantias", "Index", "Lista") - Veja as garantias que o cliente possui.</li>
+        <li>@Html.ActionLink("Financeiro", "Index", "Lista") - Faça controla das finanças do cliente.</li>
+        <li>@Html.ActionLink("Aquisição", "Index", "Lista") - Controle a aquisição dos produtos feitos pelo cliente.</li>
+        <li>@Html.ActionLink("Relatórios", "Index", "Lista") - Obtenha relatórios com qualquer tipo de especificação necessária.</li>
+    </ul>
+</p>

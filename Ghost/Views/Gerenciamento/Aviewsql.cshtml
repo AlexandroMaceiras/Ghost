@@ -1,0 +1,499 @@
+﻿@model Ghost.Models.SLV_VW_GERE_PROCESSOS
+
+@{
+    ViewBag.Title = "Editar Lista Generic Bootstrap";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+    @*Layout = "~/Views/Shared/_LayoutEditBootstrap.cshtml";*@
+}
+<br /><br />
+<h4>Detalhes do Cliente</h4>
+
+<table>
+    <tr  class="dl-horizontal">
+        <th>
+            Tipo de Pessoa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            <b>@Html.DisplayFor(model => model.SG_TP_PESSOA)</b>&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Código de Operação Solvere:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_SOLVERE_OPER)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Nome do Cliente:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PESSOA)
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Código da causa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CAUSA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do processo:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_PROCESSO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Escritório:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_ESCRITORIO_COBRANCA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Status Processual:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_PROCESSUAL)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Status Operacional:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_OPERACIONAL)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Descrição do Produto:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PRODUTO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Data do Contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Data do Venc. Desde:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_VENC_DESDE)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+           Grupo Econômico:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_GRUPO_ECONOMICO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Carteira:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CARTEIRA)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Saldo Contábil Devedor:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_CONTABIL_DEVEDOR)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Saldo Gerencial:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_GERENCIAL)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+</table>
+</hr>
+
+<table>
+    <tr class="dl-horizontal">
+        <th>
+            Tipo de Pessoa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            <b>@Html.DisplayFor(model => model.SG_TP_PESSOA)</b>&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Código de Operação Solvere:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_SOLVERE_OPER)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Nome do Cliente:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PESSOA)
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Código da causa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CAUSA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do processo:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_PROCESSO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Escritório:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_ESCRITORIO_COBRANCA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Status Processual:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_PROCESSUAL)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Status Operacional:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_OPERACIONAL)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Descrição do Produto:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PRODUTO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Data do Contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Data do Venc. Desde:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_VENC_DESDE)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Grupo Econômico:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_GRUPO_ECONOMICO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Carteira:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CARTEIRA)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Saldo Contábil Devedor:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_CONTABIL_DEVEDOR)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Saldo Gerencial:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_GERENCIAL)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+</table>
+</hr>
+
+
+<table>
+    <tr class="dl-horizontal">
+        <th>
+            Tipo de Pessoa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            <b>@Html.DisplayFor(model => model.SG_TP_PESSOA)</b>&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Código de Operação Solvere:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_SOLVERE_OPER)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Nome do Cliente:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PESSOA)
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Código da causa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CAUSA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do processo:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_PROCESSO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Escritório:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_ESCRITORIO_COBRANCA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Status Processual:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_PROCESSUAL)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Status Operacional:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_OPERACIONAL)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Descrição do Produto:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PRODUTO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Data do Contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Data do Venc. Desde:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_VENC_DESDE)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Grupo Econômico:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_GRUPO_ECONOMICO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Carteira:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CARTEIRA)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Saldo Contábil Devedor:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_CONTABIL_DEVEDOR)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Saldo Gerencial:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_GERENCIAL)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+</table>
+</hr>
+
+
+<table>
+    <tr class="dl-horizontal">
+        <th>
+            Tipo de Pessoa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            <b>@Html.DisplayFor(model => model.SG_TP_PESSOA)</b>&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Código de Operação Solvere:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_SOLVERE_OPER)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Nome do Cliente:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PESSOA)
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Código da causa:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CAUSA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do processo:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_PROCESSO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Número do contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NR_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Escritório:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_ESCRITORIO_COBRANCA)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Status Processual:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_PROCESSUAL)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Status Operacional:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.IC_STATUS_OPERACIONAL)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Descrição do Produto:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_PRODUTO)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Data do Contrato:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_CONTRATO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Data do Venc. Desde:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.DT_VENC_DESDE)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            Grupo Econômico:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.NM_GRUPO_ECONOMICO)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Carteira:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CD_CARTEIRA)&nbsp;&nbsp;&nbsp;
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+            Saldo Contábil Devedor:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_CONTABIL_DEVEDOR)&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            Saldo Gerencial:&nbsp;&nbsp;&nbsp;
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.VL_SALDO_GERENCIAL)&nbsp;&nbsp;&nbsp;
+        </th>
+    </tr>
+</table>
+</hr>

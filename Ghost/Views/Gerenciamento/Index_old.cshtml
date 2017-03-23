@@ -1,0 +1,193 @@
+﻿@model IEnumerable<Ghost.Models.SLV_TB_STG_AQUI_DADO_CADASTRAL>
+
+@{
+    ViewBag.Title = "Gerenciamento de clientes";
+}
+
+<center><h2>Gerenciamento de clientes</h2></center>
+
+@using (Html.BeginForm("Index", "Gerenciamento"))
+{
+    <div class="jumbotronBusca">
+        <table border="0">
+            <tr>
+                <th class="busca">
+                    <b>Cliente:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cliente" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Cpf/Cnpj:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cpfcnpj" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do contrato:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroContrato" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Pessoa Jurídica?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="pessoaJuridica" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Incluir Grupo?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="incluirGrupo" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do processo:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Grupo Econômico:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="grupoEconomico" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Carteira:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="carteira" size="14" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Código Op Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="codOpSolvere" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Gestor Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Escritório1:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="escritorio1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <td colspan="10" align="right">
+                        <input type="submit" name="busca" value="Pesquisar" />&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </th>
+            </tr>
+        </table>
+    </div>
+}
+
+<table class="table" border="1">
+    <tr>
+        <th>
+            <font size="1"><center>Status Processual</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Statatus Operacional</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Processo</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Cód. Op. Solvere</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Contrato</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Produto</center></font>
+        </th>
+        <th>
+            <font size="1"><center>@Html.DisplayNameFor(model => model.DT_CADASTRO)</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Data Venc. Desde</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Saldo Contábil Devedor</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Saldo Gerencial</center></font>
+        </th>
+        <th>
+            <font size="1"><center>@Html.DisplayNameFor(model => model.NM_PESSOA)</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Selecionar</center></font>
+        </th>
+        <th>
+            <font size="1"><center>Carteira</center></font>
+        </th>
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <center>S</center>
+        </td>
+        <td>
+            <center><b>AA</b></center>
+        </td>
+        <td>
+            <center>111.222.333</center>
+        </td>
+        <td>
+            <center><b>15</b></center>
+        </td>
+        <td>
+            <center>1327316</center>
+        </td>
+        <td>
+            <center><b>CDC</b></center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.DT_CADASTRO)</center>
+        </td>
+        <td>
+            <center><b>10.05.2016</b></center>
+        </td>
+        <td align="right">
+            R$&nbsp;110.210.000,00
+        </td>
+        <td align="right">
+            <b>R$&nbsp;125.000.000,00</b>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.NM_PESSOA)</center>
+        </td>
+        <td>
+            <center><b><input type="checkbox" /></b></center>
+        </td>
+        <td>
+            <center><b>1</b></center>
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.NR_CARGA }) |*@
+        @Html.ActionLink("Detalhes", "Details", new { id=item.NR_CARGA }) @* |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NR_CARGA })*@
+        </td>
+    </tr>
+    }
+
+</table>
+<hr />
+<p>
+    @Html.ActionLink("Adicionar novo cliente", "Create")
+</p>

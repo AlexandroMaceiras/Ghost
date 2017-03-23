@@ -1,0 +1,212 @@
+﻿@model IEnumerable<Ghost.Models.SLV_VW_GERE_DADOS_CADASTRAIS>
+
+@{
+    ViewBag.Title = "Editar Lista Generic Bootstrap";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+    @*Layout = "~/Views/Shared/_LayoutEditBootstrap.cshtml";*@
+}
+<br /><br />
+<h4>Detalhes do Cliente</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_CPF_CNPJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SG_TP_PESSOA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_PESSOA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_GRUPO_ECONOMICO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_LOGRADOURO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_LOGRADOURO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_COMPLEMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_BAIRRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_CIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SG_UF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_PAIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_DDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_TELEFONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_DDD_CELULAR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_CELULAR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_NASCIMENTO_OU_FUNDACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_CONTATO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_RG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_EMISSOR_RG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DS_NATURALIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DS_NACIONALIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_PAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_MAE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_CONJUGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_ESTADO_CIVIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DS_ESTADO_CIVIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_REGIME_CIVIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_CADASTRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_ATUALIZACAO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_CPF_CNPJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SG_TP_PESSOA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_PESSOA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_GRUPO_ECONOMICO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_LOGRADOURO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_LOGRADOURO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_COMPLEMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_BAIRRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_CIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SG_UF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_PAIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_DDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_TELEFONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_DDD_CELULAR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_CELULAR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_NASCIMENTO_OU_FUNDACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_CONTATO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_RG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_EMISSOR_RG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DS_NATURALIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DS_NACIONALIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_PAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_MAE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_CONJUGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_ESTADO_CIVIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DS_ESTADO_CIVIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_REGIME_CIVIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_CADASTRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_ATUALIZACAO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NR_CARGA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NR_CARGA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NR_CARGA })
+        </td>
+    </tr>
+}
+
+</table>

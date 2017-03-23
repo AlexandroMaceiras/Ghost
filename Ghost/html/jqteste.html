@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Soma automática</title>
+
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+	$(document).ready( function() {
+
+		$('#valor, #porcentagem').blur(function(){
+			var valor 		= $('#valor').val();
+			var porcentagem = $('#porcentagem').val();
+
+			if(valor == "") valor = 0;
+			if(porcentagem == "") porcentagem = 0;
+
+			var resultado 	= parseInt(valor) + parseInt(porcentagem);
+			$('#resultado').val(resultado);
+		})
+
+	});
+    </script>
+
+</head>
+
+<body>
+    <h3>Soma automática</h3>
+
+    <form id="FrmLoja" method="post" action="#">
+        <input type="text" name="valor" id="valor" value="0" />
+        <input type="text" name="porcentagem" id="porcentagem" value="0" />
+        <input type="text" name="resultado" id="resultado" value="0" />
+    </form>
+
+</body>
+</html>

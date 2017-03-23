@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Como funciona";
+}
+<h2 class="container">@ViewBag.Title.</h2>
+<h3 class="container">@ViewBag.Message</h3>
+
+<p class="container">Este é um sistema intranet para controle de clientes devedores onde você pode através dos seu módulos, gerenciar a demanda de clientes existentes na
+    base no módulo Gerenciar,  negociar fazendo acordos e tendo o controle destes no módulo Acordo, ter conhecimento das garantias dos clientes devedores
+    no módulo Garantias, ter controle de todas as negociações já feitas no módulo Financeiro, saber das aquisições do clientes devedores no módulo 
+    Aquisição e obter relatórios de tudo no módulo Relatórios.</p>
+
+<script type="text/javascript">
+    //this script reset modal each time when you click on the link:
+    try
+    {
+        $(function () {
+            $(".modal-link").click(function (event) {
+                event.preventDefault();
+                $('#myModal').removeData("modal");
+                $('#myModal').modal({ remote: $(this).attr("href") });
+
+            });
+        })
+
+        //Outro Exemplo modal
+        var $exampleModal = $("#example-modal"),
+        $exampleModalClose = $(".modal-header button");
+
+        $exampleModal.on("shown.bs.modal", function () {
+            document.activeElement.blur();
+            $exampleModalClose.focus();
+        });
+    }
+    catch(e)
+    {
+        //alert(e);
+    }
+</script>
+
+<section class="container">
+    <h1>Mais Info</h1>
+    <p>Aqui eu posso ter mais info em janelas modal !</p>
+    <a class="btn btn-success" data-toggle="modal" data-target="#example-modal" id="example-modal--label" href="#">Abrir Mais Info</a>
+</section>
+
+<div class="modal fade" role="dialog" aria-labelledby="example-modal--label" aria-hidden="true" id="example-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <header class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fecha Janela</span></button>
+                <h4 class="modal-title" id="mySmallModalLabel">Oi!</h4>
+            </header>
+            <div class="modal-body">
+                <p>Bla blabla blabla blablablablabla bla blabla blabla blablablabla blablabla blabla bla blablablablablablabla blabla bla blablabla blabla bla</p>
+            </div>
+        </div>
+    </div>
+</div>

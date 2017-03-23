@@ -1,0 +1,312 @@
+﻿@using GridMvc.Html
+@using GridMvc.Sorting
+@model IEnumerable<Ghost.Models.SLV_TB_STG_AQUI_DADO_CADASTRAL>
+
+<!DOCTYPE html>
+
+<html>
+
+@{
+    ViewBag.Title = "Gerenciamento de Clientes";
+}
+
+<center><h2>Gerenciamento de Clientes</h2></center>
+
+@using (Html.BeginForm("Index", "Gerenciamento"))
+{
+    <div class="jumbotronBusca">
+        <table border="0">
+            <tr>
+                <th class="busca">
+                    <b>Cliente:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cliente" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Cpf/Cnpj:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="cpfcnpj" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do contrato:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroContrato" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Pessoa Jurídica?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="pessoaJuridica" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                </th>
+                <th class="busca">
+                    <b>Incluir Grupo?&nbsp;&nbsp;&nbsp;</b>
+                    <input type="checkbox" name="incluirGrupo" checked />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Número do processo:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Grupo Econômico:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="grupoEconomico" size="40" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Carteira:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="carteira" size="14" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Código Op Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="codOpSolvere" size="23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+            </tr>
+            <tr>
+                <th class="busca">
+                    <b>Gestor Solvere:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="numeroProcesso" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                    <b>Escritório:&nbsp;&nbsp;&nbsp;</b>
+                </th>
+                <th class="busca">
+                    <input type="text" name="escritorio" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th class="busca">
+                <td colspan="10" align="right">
+                    <input  class="btn btn-default" type="submit" name="busca" value="Pesquisar" />&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                </th>
+            </tr>
+        </table>
+    </div>
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+    <!-- Este css dá conflito e faz as janelinhas de filtro do grid ficarem desalinhadas com o símbolo de filtro-->
+    <!--    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" /> -->
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"> </script>
+    <script src="@Url.Content("~/Scripts/gridmvc.lang.ptbr.js")"></script>
+</head>
+
+
+<body>
+    <hr />
+    <div id="supergrid" style="width: 100%;">
+        @if (Model.Count() > 0)
+        {
+            @Html.Grid(Model).SetLanguage("ptbr").Columns(columns =>
+           {
+               columns.Add(c => c.CD_CEP).Titled("Status <br>Processual");
+               columns.Add(c => c.CD_CPF_CNPJ).Titled("Status <br>Operacional");
+               columns.Add(c => c.CD_ESTADO_CIVIL).Titled("<br>Processo");
+               columns.Add(c => c.CD_GRUPO_ECONOMICO).Titled("Cód. Op. <br>Solvere");
+               columns.Add(c => c.CD_LOTE_CESSAO).Titled("<br>Contrato");
+               columns.Add(c => c.CD_REGIME_CIVIL).Titled("<br>Produto");
+
+               columns.Add(c => c.DT_CADASTRO).Titled("Data <br>Cadastro")
+               .Format("{0:dd/MM/yyyy}");
+
+               columns.Add(c => c.DS_NACIONALIDADE).Titled("Data <br>Vencimento Desde");
+               columns.Add(c => c.DS_NATURALIDADE).Titled("Saldo <br>Contábil Devedor");
+               columns.Add(c => c.DT_ATUALIZACAO).Titled("Saldo <br>Gerencial");
+               columns.Add(c => c.NM_PESSOA).Titled("Nome <br>do Cliente");
+               columns.Add(c => c.DT_NASCIMENTO).Titled("<br>Carteira");
+               columns.Add(c => c.DT_CARGA).Titled("<br>Somar?")
+                .Encoded(false)
+                .Sanitized(false)
+                .RenderValueAs(o => Html.CheckBox("checkSoma", false));
+
+               columns.Add()
+               .Encoded(false)
+               .Sanitized(false)
+               .RenderValueAs(d => Html.ActionLink("Detalhes", "Aviewsql", new { id = 5043 }, new { @class = "modal-link" }));
+
+           }).WithPaging(10).Sortable(true).Filterable(true).WithMultipleFilters()
+        }
+        else
+        {
+            <div>Nenhum item encontrado</div>
+        }
+        <center>
+            <table border="0">
+                <tr>
+                    <td>
+                        <div id="soma1Total">
+                        </div>
+                    </td>
+
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+
+                    <td>
+                        <div id="soma2Total">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </center>
+        
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModal2Label">
+                        Detalhes do Cliente
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    Carregando...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        Fechar
+                    </button>
+                    @*<button type="submit" value="search" class="btn btn-primary">
+                            Continuar
+                        </button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //this script reset modal each time when you click on the link:
+        $(function () {
+            $(".modal-link").click(function (event) {
+                event.preventDefault();
+                $('#myModal').removeData("modal");
+                $('#myModal').modal({ remote: $(this).attr("href") });
+
+            });
+        });
+
+        //define o css de todos os botões de Detalhes do grid.
+        try {
+            $(function () {
+                $("tr.grid-row").each(function () {
+                    var tr = $(this);
+                    var rows = $(tr).children();
+                    $(rows[13]).css({ "background-color": "#ffffff", "border-color": "#000000" });
+                    $(rows[13].setAttribute("class", "btn btn-default"));
+                    $(rows[13].setAttribute("position", "relative"));
+                })
+            });
+        }
+        catch (e) {
+            //alert(e); 
+        }
+
+        caminho = document.getElementById("supergrid");
+
+        //Faz a soma da coluna 11 e a soma da coluna 3, checando o campo 12, automaticamente e atualiza no final.
+        try
+        {
+            $(document).change(function () {
+                var soma1 = 0.00;
+                var soma2 = 0.00;
+                $("tr.grid-row").each(function () {
+                    var tr = $(this);
+                    var rows = $(tr).children();
+
+                    if (rows[12].getElementsByTagName("input")[0].checked) {
+                        //  confirm("sim");
+                        var valor1 = rows[11].innerHTML;
+                        var valor2 = rows[3].innerHTML;
+                        //valor1 = valor1.replace(",", ".");
+                        valor1 = parseFloat(valor1);
+                        valor2 = parseFloat(valor2);
+                        soma1 += valor1;
+                        soma2 += valor2;
+                    }
+                });
+
+                soma1 = soma1.toFixed(2);
+                soma2 = soma2.toFixed(2);
+
+                //Aparece cada uma das somas no final do grid.
+                //var trTotal = "<tr><td></td><td></td><td></td><td style='color:red;font-weight:bold;'>" + soma + "</td><td></td><td></td></tr>"
+                //$("tr.grid-row:last").after(trTotal);
+
+                $("#soma1Total").html("Total Carteira: <font style='color:black; font-family:Arial; font-style:normal;'>R$ <b>" + soma1.replace(".", ",") + "</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-");
+                $("#soma2Total").html("Total Cód. Op. Solvere: <font style='color:black; font-family:Arial; font-style:normal;'>R$ <b>" + soma2.replace(".", ",") + "</b></font>");
+            });
+        }
+        catch(e)
+        {
+            //alert(e);
+        }
+
+        //Retira o filtro da coluna "SOMAR?".
+        try{
+            caminho.getElementsByTagName("thead")[0]
+            .getElementsByTagName("div")[24]
+            .getElementsByTagName("span")[0]
+            .setAttribute("class", " ");
+        }
+        catch(e)
+        {
+            //alert(e);
+        }
+
+        //Se os filtros não encontrarem nada imprime a mensagem em português (Não é pela pesquisa do topo da página é pela pesquisa feita nos filtros das colunas!).
+        try
+        {
+            local = caminho.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+            if (local.getAttribute("class") == "grid-empty-text") {
+                local.innerHTML = "<td colspan='14'>Nenhum item encontrado</td>";
+            }
+        }
+        catch(e)
+        {
+            //alert(e); 
+        }
+
+        //Traduz o tooltip do filtro da coluna de "Filter this column" para português e coloca o nome da coluna.
+        try {
+            for (i = 1; i <= caminho.getElementsByTagName("span").length - 3; i++) {
+                caminho.getElementsByTagName("div")[i * 2]
+                    .getElementsByTagName("span")[0]
+                    .setAttribute("title", "Filtrar a coluna " + caminho.getElementsByTagName("div")[i * 2 + 1].textContent + " !");
+            }
+        }
+        catch (e)
+        {
+            //alert(e);
+        }
+    </script>
+
+</body>
+</html>

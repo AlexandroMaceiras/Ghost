@@ -1,0 +1,100 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Tabela de busca da tela Gerenciamento de clientes*/
+.busca {
+  position: relative;
+  font-size: 100%;
+  line-height: 1;
+  color: #debf2a;
+}
+
+.detalhes {
+  position: relative;
+  font-size: 100%;
+  line-height: 1;
+  color: #4cff00;
+}
+
+.jumbotronBusca {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 2;
+    color: inherit;
+    background-image: url('../Imagens/fundo1.bmp');
+    font-style: normal;
+    border-radius: 15px;
+}
+
+.jumbotronGrid {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 2;
+    color: inherit;
+    font-style: normal;
+    background-color: gainsboro;
+    border-radius: 15px;
+}
+
+.jumbotronBusca h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotronBusca p {
+  line-height: 1.4;
+}
+
+.container .jumbotronBusca {
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotronBusca {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .container .jumbotronBusca {
+    padding-right: 10px;
+    padding-left: 50px;
+  }
+  .jumbotronBusca h1 {
+    font-size: 5px;
+  }
+  .modal-lg {
+    width: 999px; /* New width for large modal */
+  }
+}
+/*Ajustando as celulas do grid*/
+td[data-name='NM_PESSOA'] {
+    text-align: left;
+}
+td[data-name='DT_CARGA'] {
+    text-align: center;
+}
